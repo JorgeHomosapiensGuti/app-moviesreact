@@ -5,6 +5,7 @@
 package com.app.movie.interfaces;
 
 import com.app.movie.entities.Category;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.CrudRepository;
 
 /**

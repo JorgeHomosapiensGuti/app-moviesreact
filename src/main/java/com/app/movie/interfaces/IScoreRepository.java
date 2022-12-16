@@ -4,18 +4,20 @@
  */
 package com.app.movie.interfaces;
 
-import com.app.movie.entities.Client;
 import com.app.movie.entities.Movie;
+import com.app.movie.entities.Score;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+
 import java.util.List;
-import java.util.Optional;
+
 /**
  *
  * @author Andres
  */
-public interface IClientRepository extends CrudRepository<Client, String> {
-    @Query(value= "{email : ?0}")
-    Optional<Client> findByEmail(String email);
+public interface IScoreRepository extends MongoRepository<Score, String> {
+
+    @Query(value= "{movie.id : ?0,client.id:?1}")
+    Iterable<Score> getScoreByMovieAndClient(String movieId,String clientId);
+
 }

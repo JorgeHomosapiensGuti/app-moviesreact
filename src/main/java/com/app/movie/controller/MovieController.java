@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  *
- * @author Andres
+ * @author Jorge
  */
 @RestController
 @RequestMapping("/api/movie")
