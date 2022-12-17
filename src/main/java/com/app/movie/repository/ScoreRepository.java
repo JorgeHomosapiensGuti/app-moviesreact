@@ -4,44 +4,49 @@
  */
 package com.app.movie.repository;
 
-import com.app.movie.entities.Client;
-import com.app.movie.interfaces.IClientRepository;
-
-import java.util.Optional;
+import com.app.movie.entities.Score;
+import com.app.movie.interfaces.IScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
  * @author Andres
  */
 @Repository
-public class ClientRepository {
-    
+public class ScoreRepository {
+
     @Autowired
-    IClientRepository repository;
-    
-    public Iterable<Client> getAll(){
+    IScoreRepository repository;
+
+    public Iterable<Score> getAll(){
         return repository.findAll();
     }
-    
-    public Optional<Client> findById(String id){
-        Optional<Client> response= repository.findById(id);
+
+    public Optional<Score> findById(String id){
+        Optional<Score> response= repository.findById(id);
         return response;
     }
-    
+
+    public List<Score> findByMovieAndClient(String movieId,String clientId){
+        List<Score> response= (List<Score>) repository.getScoreByMovieAndClient(movieId,clientId);
+        return response;
+    }
+
+
     public Boolean existsById(String id){
         return repository.existsById(id);
     }
-    
+
     public void deleteById(String id){
         repository.deleteById(id);
     }
-    
-    public Client save(Client client){
-        return repository.save(client);
+
+    public Score save(Score score){
+        return repository.save(score);
     }
 
-    public Optional<Client> findByEmail(String email) {
-    }
 }

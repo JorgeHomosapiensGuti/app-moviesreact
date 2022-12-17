@@ -8,7 +8,7 @@ import com.app.movie.entities.Movie;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-
+import java.util.List;
 /**
  *
  * @author Andres
