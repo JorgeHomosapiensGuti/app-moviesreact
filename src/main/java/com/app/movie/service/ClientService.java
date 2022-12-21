@@ -4,20 +4,22 @@
  */
 package com.app.movie.service;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
 import com.app.movie.dto.ReportClientDto;
 import com.app.movie.entities.Client;
+
 import com.app.movie.repository.ClientRepository;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
+
 
 import java.util.Optional;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 /**
- *
  * @author Andres
  */
 @Service
@@ -25,9 +27,8 @@ public class ClientService {
 
     @Autowired
     ClientRepository repository;
-    private EchoEncoder<String> passwordEncoder;
 
-    // PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public Iterable<Client> get() {
         Iterable<Client> response = repository.getAll();

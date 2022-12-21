@@ -32,7 +32,7 @@ public class ScoreRepository {
     }
 
     public List<Score> findByMovieAndClient(String movieId,String clientId){
-        List<Score> response= (List<Score>) repository.getScoreByMovieAndClient(movieId,clientId);
+        List<Score> response= repository.getScoreByMovieAndClient(movieId,clientId);
         return response;
     }
 

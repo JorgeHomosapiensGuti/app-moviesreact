@@ -6,10 +6,10 @@ package com.app.movie.repository;
 
 import com.app.movie.entities.Client;
 import com.app.movie.interfaces.IClientRepository;
-
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  *
@@ -17,31 +17,34 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class ClientRepository {
-    
+
     @Autowired
     IClientRepository repository;
-    
+
     public Iterable<Client> getAll(){
         return repository.findAll();
     }
-    
+
     public Optional<Client> findById(String id){
         Optional<Client> response= repository.findById(id);
         return response;
     }
-    
+
+    public Optional<Client> findByEmail(String email){
+        Optional<Client> response= repository.findByEmail(email);
+        return response;
+    }
+
     public Boolean existsById(String id){
         return repository.existsById(id);
     }
-    
+
     public void deleteById(String id){
         repository.deleteById(id);
     }
-    
+
     public Client save(Client client){
         return repository.save(client);
     }
 
-    public Optional<Client> findByEmail(String email) {
-    }
 }
